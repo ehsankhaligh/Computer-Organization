@@ -1,0 +1,175 @@
+#! /gaia/home/faculty/changw/ivl/bin/vvp
+:ivl_version "0.9.6 " "(v0_9_6)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x10230c0 .scope module, "TestMod" "TestMod" 2 33;
+ .timescale 0 0;
+v0x1041ca0_0 .var "d", 0 3;
+v0x1041d50_0 .net "o", 0 0, L_0x1043ef0; 1 drivers
+v0x1041e00_0 .var "s", 0 1;
+S_0x10231b0 .scope module, "my_mux" "MuxMod" 2 38, 2 16, S_0x10230c0;
+ .timescale 0 0;
+L_0x1043320 .functor AND 1, L_0x10433d0, L_0x1043510, C4<1>, C4<1>;
+L_0x10436f0 .functor AND 1, L_0x10437a0, L_0x1043890, C4<1>, C4<1>;
+L_0x1043a20 .functor AND 1, L_0x1043ad0, L_0x1043c50, C4<1>, C4<1>;
+L_0x1043f50 .functor AND 1, L_0x1043fb0, L_0x1044050, C4<1>, C4<1>;
+L_0x1043ef0 .functor OR 1, L_0x10441c0, L_0x10442b0, L_0x10443a0, L_0x1044490;
+v0x1040ee0_0 .net *"_s1", 0 0, L_0x1043320; 1 drivers
+v0x1040f60_0 .net *"_s11", 0 0, L_0x10437a0; 1 drivers
+v0x1041000_0 .net *"_s13", 0 0, L_0x1043890; 1 drivers
+v0x10410a0_0 .net *"_s15", 0 0, L_0x1043a20; 1 drivers
+v0x1041120_0 .net *"_s18", 0 0, L_0x1043ad0; 1 drivers
+v0x10411c0_0 .net *"_s20", 0 0, L_0x1043c50; 1 drivers
+v0x1041260_0 .net *"_s22", 0 0, L_0x1043f50; 1 drivers
+v0x1041300_0 .net *"_s25", 0 0, L_0x1043fb0; 1 drivers
+v0x10413a0_0 .net *"_s27", 0 0, L_0x1044050; 1 drivers
+v0x1041440_0 .net *"_s30", 0 0, L_0x10441c0; 1 drivers
+v0x10414e0_0 .net *"_s32", 0 0, L_0x10442b0; 1 drivers
+v0x1041580_0 .net *"_s34", 0 0, L_0x10443a0; 1 drivers
+v0x1041620_0 .net *"_s36", 0 0, L_0x1044490; 1 drivers
+v0x10416c0_0 .net *"_s4", 0 0, L_0x10433d0; 1 drivers
+v0x10417e0_0 .net *"_s6", 0 0, L_0x1043510; 1 drivers
+v0x1041880_0 .net *"_s8", 0 0, L_0x10436f0; 1 drivers
+RS_0x7fee544d56a8 .resolv tri, L_0x1043280, L_0x1043600, L_0x1043980, L_0x1043e50;
+v0x1041740_0 .net8 "and_out", 0 3, RS_0x7fee544d56a8; 4 drivers
+v0x10419d0_0 .net "d", 0 3, v0x1041ca0_0; 1 drivers
+v0x1041af0_0 .alias "o", 0 0, v0x1041d50_0;
+v0x1041b70_0 .net "s", 0 1, v0x1041e00_0; 1 drivers
+RS_0x7fee544d5318 .resolv tri, L_0x10423b0, L_0x1042770, L_0x1042b00, L_0x1042e20;
+v0x1041a50_0 .net8 "s_decoded", 0 3, RS_0x7fee544d5318; 4 drivers
+L_0x1043280 .part/pv L_0x1043320, 3, 1, 4;
+L_0x10433d0 .part v0x1041ca0_0, 3, 1;
+L_0x1043510 .part RS_0x7fee544d5318, 3, 1;
+L_0x1043600 .part/pv L_0x10436f0, 2, 1, 4;
+L_0x10437a0 .part v0x1041ca0_0, 2, 1;
+L_0x1043890 .part RS_0x7fee544d5318, 2, 1;
+L_0x1043980 .part/pv L_0x1043a20, 1, 1, 4;
+L_0x1043ad0 .part v0x1041ca0_0, 1, 1;
+L_0x1043c50 .part RS_0x7fee544d5318, 1, 1;
+L_0x1043e50 .part/pv L_0x1043f50, 0, 1, 4;
+L_0x1043fb0 .part v0x1041ca0_0, 0, 1;
+L_0x1044050 .part RS_0x7fee544d5318, 0, 1;
+L_0x10441c0 .part RS_0x7fee544d56a8, 3, 1;
+L_0x10442b0 .part RS_0x7fee544d56a8, 2, 1;
+L_0x10443a0 .part RS_0x7fee544d56a8, 1, 1;
+L_0x1044490 .part RS_0x7fee544d56a8, 0, 1;
+S_0x10255d0 .scope module, "my_decoder" "DecoderMod" 2 23, 2 2, S_0x10231b0;
+ .timescale 0 0;
+L_0x1040760 .functor NOT 1, L_0x1041fa0, C4<0>, C4<0>, C4<0>;
+L_0x1042180 .functor NOT 1, L_0x1042230, C4<0>, C4<0>, C4<0>;
+L_0x1042450 .functor AND 1, L_0x1042500, L_0x10425f0, C4<1>, C4<1>;
+L_0x1042810 .functor AND 1, L_0x10428c0, L_0x10429b0, C4<1>, C4<1>;
+L_0x1042c30 .functor AND 1, L_0x1042c90, L_0x1042d30, C4<1>, C4<1>;
+L_0x1042aa0 .functor AND 1, L_0x1042f90, L_0x1043080, C4<1>, C4<1>;
+v0x10256c0_0 .net *"_s1", 0 0, L_0x1040760; 1 drivers
+v0x1040140_0 .net *"_s11", 0 0, L_0x1042450; 1 drivers
+v0x10401e0_0 .net *"_s14", 0 0, L_0x1042500; 1 drivers
+v0x1040280_0 .net *"_s16", 0 0, L_0x10425f0; 1 drivers
+v0x1040330_0 .net *"_s18", 0 0, L_0x1042810; 1 drivers
+v0x10403d0_0 .net *"_s21", 0 0, L_0x10428c0; 1 drivers
+v0x10404b0_0 .net *"_s23", 0 0, L_0x10429b0; 1 drivers
+v0x1040550_0 .net *"_s25", 0 0, L_0x1042c30; 1 drivers
+v0x1040640_0 .net *"_s28", 0 0, L_0x1042c90; 1 drivers
+v0x10406e0_0 .net *"_s30", 0 0, L_0x1042d30; 1 drivers
+v0x10407e0_0 .net *"_s32", 0 0, L_0x1042aa0; 1 drivers
+v0x1040880_0 .net *"_s35", 0 0, L_0x1042f90; 1 drivers
+v0x1040990_0 .net *"_s37", 0 0, L_0x1043080; 1 drivers
+v0x1040a30_0 .net *"_s4", 0 0, L_0x1041fa0; 1 drivers
+v0x1040b50_0 .net *"_s6", 0 0, L_0x1042180; 1 drivers
+v0x1040bf0_0 .net *"_s9", 0 0, L_0x1042230; 1 drivers
+v0x1040ab0_0 .alias "o", 0 3, v0x1041a50_0;
+v0x1040d40_0 .alias "s", 0 1, v0x1041b70_0;
+RS_0x7fee544d5378 .resolv tri, L_0x1041e80, L_0x1042090, C4<zz>, C4<zz>;
+v0x1040e60_0 .net8 "s_inv", 0 1, RS_0x7fee544d5378; 2 drivers
+L_0x1041e80 .part/pv L_0x1040760, 0, 1, 2;
+L_0x1041fa0 .part v0x1041e00_0, 0, 1;
+L_0x1042090 .part/pv L_0x1042180, 1, 1, 2;
+L_0x1042230 .part v0x1041e00_0, 1, 1;
+L_0x10423b0 .part/pv L_0x1042450, 3, 1, 4;
+L_0x1042500 .part RS_0x7fee544d5378, 0, 1;
+L_0x10425f0 .part RS_0x7fee544d5378, 1, 1;
+L_0x1042770 .part/pv L_0x1042810, 2, 1, 4;
+L_0x10428c0 .part RS_0x7fee544d5378, 0, 1;
+L_0x10429b0 .part v0x1041e00_0, 1, 1;
+L_0x1042b00 .part/pv L_0x1042c30, 1, 1, 4;
+L_0x1042c90 .part v0x1041e00_0, 0, 1;
+L_0x1042d30 .part RS_0x7fee544d5378, 1, 1;
+L_0x1042e20 .part/pv L_0x1042aa0, 0, 1, 4;
+L_0x1042f90 .part v0x1041e00_0, 0, 1;
+L_0x1043080 .part v0x1041e00_0, 1, 1;
+    .scope S_0x10230c0;
+T_0 ;
+    %vpi_call 2 41 "$display", "Time  s     d    o";
+    %vpi_call 2 42 "$display", "---------------------------------";
+    %vpi_call 2 43 "$monitor", "%04d  %b  %b  %b", $time, v0x1041e00_0, v0x1041ca0_0, v0x1041d50_0;
+    %delay 63, 0;
+    %vpi_call 2 45 "$finish";
+    %end;
+    .thread T_0;
+    .scope S_0x10230c0;
+T_1 ;
+    %ix/load 0, 0, 0;
+    %set/x0 v0x1041ca0_0, 0, 1;
+    %delay 1, 0;
+    %ix/load 0, 0, 0;
+    %set/x0 v0x1041ca0_0, 1, 1;
+    %delay 1, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x10230c0;
+T_2 ;
+    %ix/load 0, 1, 0;
+    %set/x0 v0x1041ca0_0, 0, 1;
+    %delay 2, 0;
+    %ix/load 0, 1, 0;
+    %set/x0 v0x1041ca0_0, 1, 1;
+    %delay 2, 0;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x10230c0;
+T_3 ;
+    %ix/load 0, 2, 0;
+    %set/x0 v0x1041ca0_0, 0, 1;
+    %delay 4, 0;
+    %ix/load 0, 2, 0;
+    %set/x0 v0x1041ca0_0, 1, 1;
+    %delay 4, 0;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0x10230c0;
+T_4 ;
+    %ix/load 0, 3, 0;
+    %set/x0 v0x1041ca0_0, 0, 1;
+    %delay 8, 0;
+    %ix/load 0, 3, 0;
+    %set/x0 v0x1041ca0_0, 1, 1;
+    %delay 8, 0;
+    %jmp T_4;
+    .thread T_4;
+    .scope S_0x10230c0;
+T_5 ;
+    %ix/load 0, 1, 0;
+    %set/x0 v0x1041e00_0, 0, 1;
+    %delay 16, 0;
+    %ix/load 0, 1, 0;
+    %set/x0 v0x1041e00_0, 1, 1;
+    %delay 16, 0;
+    %jmp T_5;
+    .thread T_5;
+    .scope S_0x10230c0;
+T_6 ;
+    %ix/load 0, 0, 0;
+    %set/x0 v0x1041e00_0, 0, 1;
+    %delay 32, 0;
+    %ix/load 0, 0, 0;
+    %set/x0 v0x1041e00_0, 1, 1;
+    %delay 32, 0;
+    %jmp T_6;
+    .thread T_6;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "m4x1.v";
